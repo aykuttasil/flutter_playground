@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playground/pages/AboutPage.dart';
+import 'package:flutter_playground/pages/AnimatedBoxPage.dart';
+import 'package:flutter_playground/pages/NavigateWithArgumentsPage.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -9,14 +12,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,22 +22,44 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            RaisedButton(
+              child: Text("Arguments Page"),
+              onPressed: () => {
+                Navigator.pushNamed(
+                  context,
+                  NavigateWithArgumentsPage.routeName,
+                  arguments: MyArguments("Sample Title", "Sample message"),
+                )
+              },
             ),
-            Text(
-              '$_counter',
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .display1,
+            RaisedButton(
+              child: Text("Arguments Page 123"),
+              onPressed: () => {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return Center(
+                    child: Container(
+                      decoration: BoxDecoration(color: Colors.yellow),
+                      constraints: BoxConstraints.expand(),
+                      child: Text("Aykut AaAAsil"),
+                    ),
+                  );
+                }))
+              },
+            ),
+            RaisedButton(
+              child: Text("AnimatedBoxPage"),
+              onPressed: () => {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return AnimatedBoxPage();
+                }))
+              },
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, 'about');
+          Navigator.pushNamed(context, AboutPage.routeName);
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
