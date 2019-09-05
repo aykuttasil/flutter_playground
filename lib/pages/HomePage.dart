@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_playground/pages/AboutPage.dart';
 import 'package:flutter_playground/pages/AnimatedBoxPage.dart';
 import 'package:flutter_playground/pages/NavigateWithArgumentsPage.dart';
+import 'package:flutter_playground/pages/PageRouteBuilder.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -54,6 +55,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 }))
               },
             ),
+            RaisedButton(
+              child: Text("PageRouteBuilderPage"),
+              onPressed: () => {
+                Navigator.of(context).push(_createRouteToPageRouteBuilderPage())
+              },
+            ),
           ],
         ),
       ),
@@ -64,6 +71,25 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
+    );
+  }
+
+  Route _createRouteToPageRouteBuilderPage() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondAnimation) =>
+          PageRouteBuilderPage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        var begin = Offset(0.0, 1.0);
+        var end = Offset.zero;
+        var curve = Curves.bounceInOut;
+
+        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
     );
   }
 }
