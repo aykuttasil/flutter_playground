@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_playground/pages/AboutPage.dart';
 import 'package:flutter_playground/pages/HomePage.dart';
 import 'package:flutter_playground/pages/NavigateWithArgumentsPage.dart';
-import 'package:flutter_playground/theme/AppTheme.dart';
+import 'package:flutter_playground/common/AppTheme.dart';
 import 'package:provider/provider.dart';
+
+import 'models/AppState.dart';
 
 void main() {
   runApp(
@@ -15,17 +17,6 @@ void main() {
       child: MyApp(),
     ),
   );
-}
-
-class AppState with ChangeNotifier {
-  String _username;
-
-  void changeUserName(String username) {
-    _username = username;
-    notifyListeners();
-  }
-
-  String get username => _username;
 }
 
 class MyApp extends StatelessWidget {

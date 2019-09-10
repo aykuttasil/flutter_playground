@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playground/main.dart';
+import 'package:flutter_playground/models/AppState.dart';
 import 'package:provider/provider.dart';
 
 class ProviderPage extends StatefulWidget {
