@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_playground/data/AppDio.dart';
 import 'package:flutter_playground/pages/AnimatedBoxPage.dart';
+import 'package:flutter_playground/pages/AnimatedBuilderPage.dart';
 import 'package:flutter_playground/pages/AnimationPage.dart';
 import 'package:flutter_playground/pages/NavigateWithArgumentsPage.dart';
 import 'package:flutter_playground/pages/PageRouteBuilder.dart';
@@ -49,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
               RaisedButton(
-                child: Text("Arguments Page 123"),
+                child: Text("Dynamic Created Page"),
                 onPressed: () => {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     return Center(
@@ -90,6 +91,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () => {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     return ProviderPage();
+                  }))
+                },
+              ),
+              RaisedButton(
+                child: Text("AnimatedBuilder Page"),
+                onPressed: () => {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return AnimatedBuilderPage();
                   }))
                 },
               ),
