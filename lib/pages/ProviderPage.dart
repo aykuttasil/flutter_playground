@@ -21,7 +21,7 @@ class _ProviderPageState extends State<ProviderPage> {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              Provider.of<AppState>(context).changeUserName("Aykut Asil");
+              appState.changeUserName("Aykut Asil");
             },
           ),
         );
