@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_playground/data/AppDio.dart';
 import 'package:flutter_playground/pages/AnimatedBoxPage.dart';
 import 'package:flutter_playground/pages/AnimatedBuilderPage.dart';
+import 'package:flutter_playground/pages/AnimatedContainerPage.dart';
 import 'package:flutter_playground/pages/AnimationPage.dart';
 import 'package:flutter_playground/pages/NavigateWithArgumentsPage.dart';
 import 'package:flutter_playground/pages/PageRouteBuilder.dart';
@@ -99,6 +100,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () => {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     return AnimatedBuilderPage();
+                  }))
+                },
+              ),
+              RaisedButton(
+                child: Text("AnimatedContainer"),
+                onPressed: () => {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return AnimatedContainerPage();
                   }))
                 },
               ),
