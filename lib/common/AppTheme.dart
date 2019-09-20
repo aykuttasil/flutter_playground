@@ -8,7 +8,7 @@ ThemeData appTheme() {
       display2: TextStyle(color: Colors.red),
       display3: TextStyle(color: Colors.cyanAccent),
       display4: TextStyle(color: Colors.orange),
-      headline: TextStyle(color: Colors.deepPurpleAccent),
+      headline: TextStyle(color: Colors.brown),
       caption: TextStyle(color: Colors.brown),
       overline: TextStyle(color: Colors.orangeAccent),
       body1: TextStyle(color: Colors.black45),

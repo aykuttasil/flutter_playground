@@ -5,6 +5,7 @@ import 'package:flutter_playground/pages/AnimatedBoxPage.dart';
 import 'package:flutter_playground/pages/AnimatedBuilderPage.dart';
 import 'package:flutter_playground/pages/AnimatedContainerPage.dart';
 import 'package:flutter_playground/pages/AnimationPage.dart';
+import 'package:flutter_playground/pages/FloatingAppBarPage.dart';
 import 'package:flutter_playground/pages/GridViewPage.dart';
 import 'package:flutter_playground/pages/NavigateWithArgumentsPage.dart';
 import 'package:flutter_playground/pages/PageRouteBuilder.dart';
@@ -117,6 +118,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () => {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     return GridViewPage();
+                  }))
+                },
+              ),
+              RaisedButton(
+                child: Text("FloatingAppBar Page"),
+                onPressed: () => {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return FloatingAppBarPage();
                   }))
                 },
               ),
