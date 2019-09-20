@@ -5,6 +5,7 @@ import 'package:flutter_playground/pages/AnimatedBoxPage.dart';
 import 'package:flutter_playground/pages/AnimatedBuilderPage.dart';
 import 'package:flutter_playground/pages/AnimatedContainerPage.dart';
 import 'package:flutter_playground/pages/AnimationPage.dart';
+import 'package:flutter_playground/pages/GridViewPage.dart';
 import 'package:flutter_playground/pages/NavigateWithArgumentsPage.dart';
 import 'package:flutter_playground/pages/PageRouteBuilder.dart';
 import 'package:flutter_playground/pages/ProviderPage.dart';
@@ -108,6 +109,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () => {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     return AnimatedContainerPage();
+                  }))
+                },
+              ),
+              RaisedButton(
+                child: Text("GridView Page"),
+                onPressed: () => {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return GridViewPage();
                   }))
                 },
               ),
