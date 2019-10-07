@@ -33,24 +33,25 @@ class _AnimationPageState extends State<AnimationPage>
         title: Text("Animation Page"),
       ),
       body: Container(
-          child: Column(
-        children: <Widget>[
-          FadeWidget(
-            animation: _animation,
-            child: Container(
-              width: 100,
-              height: 100,
-              color: Colors.cyan,
+        child: Column(
+          children: <Widget>[
+            FadeWidget(
+              animation: _animation,
+              child: Container(
+                width: 100,
+                height: 100,
+                color: Colors.cyan,
+              ),
             ),
-          ),
-          Container(
-            color: Colors.blue,
-            width: _animation.value,
-            height: _animation.value,
-            child: Text("Aykut"),
-          ),
-        ],
-      )),
+            Container(
+              color: Colors.blue,
+              width: _animation.value,
+              height: _animation.value,
+              child: Text("Aykut"),
+            ),
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
