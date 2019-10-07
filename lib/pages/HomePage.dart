@@ -5,6 +5,7 @@ import 'package:flutter_playground/pages/AnimatedBoxPage.dart';
 import 'package:flutter_playground/pages/AnimatedBuilderPage.dart';
 import 'package:flutter_playground/pages/AnimatedContainerPage.dart';
 import 'package:flutter_playground/pages/AnimationPage.dart';
+import 'package:flutter_playground/pages/ClipPath.dart';
 import 'package:flutter_playground/pages/FloatingAppBarPage.dart';
 import 'package:flutter_playground/pages/GridViewPage.dart';
 import 'package:flutter_playground/pages/HeroPage.dart';
@@ -135,6 +136,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () => {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     return HeroPage();
+                  }))
+                },
+              ),
+              RaisedButton(
+                child: Text("ClipPath Page"),
+                onPressed: () => {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return ClipPathPage();
                   }))
                 },
               ),
