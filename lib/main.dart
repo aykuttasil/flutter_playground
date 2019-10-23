@@ -11,7 +11,12 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(builder: (context) => AppState()),
+        ChangeNotifierProvider(
+          builder: (context) => AppState(),
+        ),
+        Provider<bool>(
+          builder: (context) => true,
+        )
         //Provider(builder: (context) => SomeOtherClass()),
       ],
       child: MyApp(),
@@ -22,12 +27,14 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    bool isDarkTheme = Provider.of<bool>(context);
+
     return MaterialApp(
       title: 'Flutter Demos',
-      theme: appTheme(),
+      theme: isDarkTheme ? AppTheme.myDarkAppTheme : AppTheme.myAppTheme,
       initialRoute: '/',
       routes: {
-        '/': (context) => MyHomePage(title: 'Mennum'),
+        '/': (context) => MyHomePage(title: 'Flutter Demos'),
         AboutPage.routeName: (context) => AboutPage(),
         NavigateWithArgumentsPage.routeName: (context) =>
             NavigateWithArgumentsPage(),

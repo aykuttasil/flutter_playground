@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playground/common/AppTheme.dart';
 
 class NavigateWithArgumentsPage extends StatelessWidget {
   static const routeName = '/argumentsPage';
@@ -7,16 +8,25 @@ class NavigateWithArgumentsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final MyArguments args = ModalRoute.of(context).settings.arguments;
 
-    return Container(
-      decoration: BoxDecoration(color: Colors.white),
-      child: Column(
-        children: <Widget>[
-          Text(args.title),
-          Expanded(
-            child: Container(),
-          ),
-          Text(args.message),
-        ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Arguments Page"),
+      ),
+      body: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(color: Colors.white),
+        child: Column(
+          children: <Widget>[
+            Text(
+              args.title,
+              style: AppTheme.textTheme.body1,
+            ),
+            Expanded(
+              child: SizedBox(),
+            ),
+            Text(args.message),
+          ],
+        ),
       ),
     );
   }

@@ -12,6 +12,7 @@ import 'package:flutter_playground/pages/HeroPage.dart';
 import 'package:flutter_playground/pages/NavigateWithArgumentsPage.dart';
 import 'package:flutter_playground/pages/PageRouteBuilder.dart';
 import 'package:flutter_playground/pages/ProviderPage.dart';
+import 'package:flutter_playground/routes/RotationRoute.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -29,6 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Container(
+        width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -40,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
-        child: Center(
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -50,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(
                     context,
                     NavigateWithArgumentsPage.routeName,
-                    arguments: MyArguments("Sample Title", "Sample message"),
+                    arguments: MyArguments("Title", "Sample message"),
                   )
                 },
               ),
@@ -62,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Container(
                         decoration: BoxDecoration(color: Colors.yellow),
                         constraints: BoxConstraints.expand(),
-                        child: Text("Aykut AaAAsil"),
+                        child: Text("Aykut Asil"),
                       ),
                     );
                   }))
@@ -145,6 +147,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     return ClipPathPage();
                   }))
+                },
+              ),
+              RaisedButton(
+                child: Text("ClipPath Page With Rotation Animation"),
+                onPressed: () => {
+                  Navigator.push(context, RotationRoute(page: ClipPathPage()))
                 },
               ),
             ],

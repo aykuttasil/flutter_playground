@@ -4,6 +4,7 @@ class ClipPathPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.cyan,
       width: double.infinity,
       child: Column(
         children: <Widget>[
