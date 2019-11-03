@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_playground/data/AppDio.dart';
+import 'package:flutter_playground/models/AppState.dart';
 import 'package:flutter_playground/pages/AnimatedBoxPage.dart';
 import 'package:flutter_playground/pages/AnimatedBuilderPage.dart';
 import 'package:flutter_playground/pages/AnimatedContainerPage.dart';
@@ -13,6 +14,7 @@ import 'package:flutter_playground/pages/NavigateWithArgumentsPage.dart';
 import 'package:flutter_playground/pages/PageRouteBuilder.dart';
 import 'package:flutter_playground/pages/ProviderPage.dart';
 import 'package:flutter_playground/routes/RotationRoute.dart';
+import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -25,26 +27,31 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    AppState appState = Provider.of<AppState>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            stops: [0.0, 0.8],
-            colors: [
-              Colors.cyan,
-              Colors.white,
-            ],
+          width: double.infinity,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              stops: [0.0, 0.8],
+              colors: [
+                Colors.cyan,
+                Colors.white,
+              ],
+            ),
           ),
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: GridView.count(
+            primary: false,
+            padding: const EdgeInsets.all(20),
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            crossAxisCount: 2,
             children: <Widget>[
               RaisedButton(
                 child: Text("Arguments Page"),
@@ -156,12 +163,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
             ],
-          ),
-        ),
-      ),
+          )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          getHttp();
+          appState.changeAppTheme(!appState.isDarkTheme);
+          // getHttp();
           // Navigator.pushNamed(context, AboutPage.routeName);
         },
         tooltip: 'Increment',

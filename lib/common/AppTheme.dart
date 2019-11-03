@@ -81,7 +81,7 @@ class AppTheme {
 
   static ThemeData myDarkAppTheme = ThemeData(
     textTheme: textTheme,
-    primarySwatch: Colors.blueGrey,
+    primarySwatch: Colors.black,
     buttonTheme: ButtonThemeData(
       buttonColor: Colors.black45,
       textTheme: ButtonTextTheme.primary,
