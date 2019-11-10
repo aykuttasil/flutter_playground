@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_playground/data/AppDio.dart';
 import 'package:flutter_playground/models/AppState.dart';
+import 'package:flutter_playground/pages/AnimateListPage.dart';
 import 'package:flutter_playground/pages/AnimatedBoxPage.dart';
 import 'package:flutter_playground/pages/AnimatedBuilderPage.dart';
 import 'package:flutter_playground/pages/AnimatedContainerPage.dart';
@@ -160,6 +161,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text("ClipPath Page With Rotation Animation"),
                 onPressed: () => {
                   Navigator.push(context, RotationRoute(page: ClipPathPage()))
+                },
+              ),
+              RaisedButton(
+                child: Text("AnimateList"),
+                onPressed: () => {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => AnimateListPage()))
                 },
               ),
             ],
